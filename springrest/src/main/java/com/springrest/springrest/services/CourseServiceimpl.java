@@ -22,4 +22,54 @@ public class CourseServiceimpl implements CourseService {
 		return list;
 	}
 
+	@Override
+	public Course getCourse(long courseId) {
+		// TODO Auto-generated method stub
+		
+		Course c=null;
+		
+		for(Course course:list) {
+			if(course.getId()==courseId) {
+				c=course;
+				break;
+			}
+		}
+		
+		return c;
+	}
+	@Override
+	public Course updateCourse(Course course) {
+		for (int i = 0; i < list.size(); i++) {
+	        if (list.get(i).getId() == course.getId()) {
+	            list.set(i, course);
+	            return course;
+	        }
+	    }
+	    return null;	
+	}
+	
+	@Override
+	public Course deleteCourse(long courseId) {
+		Course deleted = null;
+	    for (Course course : list) {
+	        if (course.getId() == courseId) {
+	            deleted = course;
+	            break;
+	        }
+	    }
+	    if (deleted != null) {
+	        list.remove(deleted);
+	    }
+	    return deleted;
+	}
+
+	@Override
+	public Course addCourse(Course course) {
+		// TODO Auto-generated method stub
+		list.add(course);
+		return course;
+	}
+
+	
+
 }
