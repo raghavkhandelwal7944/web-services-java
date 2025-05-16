@@ -21,15 +21,7 @@ public class MyController {
 	@Autowired
 	private CourseService courseService;
 	
-	@GetMapping("/home")
-	public int home() {
-		int k=0;
-		for(int i=0;i<10;i++) {
-			System.out.println(i+1);
-			k=k+i;
-		}
-		return k;
-	}
+	
 	
 	//get the courses
 	@GetMapping("/courses")
